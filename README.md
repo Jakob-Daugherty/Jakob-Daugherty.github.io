@@ -1,6 +1,6 @@
 # jadppf.github.io
 jadppf@mail.missouri.edu
 
-# Quill 
+# Quill
 
-- [ ] [LINK}(quill.html)
+- [ ] [LINK](quill.html)
