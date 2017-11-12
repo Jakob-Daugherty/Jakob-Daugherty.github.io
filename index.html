@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Marked in the browser</title>
+  <script src="lib/marked.js"></script>
+
+  <!-- topnav stylesheet -->
+  <style>
+    /* Add a black background color to the top navigation */
+    .topnav{
+      background-color: gray;
+      overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: #ddd
+      color: black;
+    }
+
+    /* Add a color to the active/current link  */
+    .topnav a.active {
+      background-color: #4caf50;
+      color: white;
+    }
+  </style>
+  <script>
+    document.body.style.display = "none"; //Hide page until it's finished rendering
+
+    document.createElement("markdown");
+    var md_tags = document.getElementsByTagName("markdown"); //Returns array of all markdown tags
+
+    for (var i = 0; i < md_tags.length; i++) {
+      var md_text = md_tags[i].textContent.replace(/^[^\S\n]+/mg, "");
+
+      var md_div = document.createElement("div");
+      md_div.id = "content";
+      md_div.innerHTML = marked(md_text)
+    }
+  </script>
+
+</head>
+<body>
+  <!-- Create topnav container -->
+  <div class="topnav" id="jadppfTopnav">
+    <a href="https://jadppf.github.io">Home</a>
+    <a href="#quill">Quill</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+
+  <div id="content"></div>
+  <script>
+    document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
+  </script>
+
+</body>
+</html>
