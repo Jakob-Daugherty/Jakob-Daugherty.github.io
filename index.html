@@ -63,8 +63,13 @@
 
   <div id="content"></div>
   <script>
-    document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
+    import com.google.common.base.Charsets;
+    import com.google.common.io.Files;
+    String content = Files.toString(new File("README.md", Charsets.UTF_8));
+    document.getElementById('content').innerHTML = marked(content);
+    //document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
   </script>
+
 
 </body>
 </html>
